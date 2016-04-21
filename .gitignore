@@ -1,0 +1,6 @@
+*pyc
+*~
+*#
+venv
+tjif/tjif/local_settings.py
+tjif/db.sqlite3
