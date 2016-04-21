@@ -1,5 +1,16 @@
 {% extends "basepage.html" %}
+{% load bootstrap %}
+
 
 {% block content %}
-YOU POSTED A JAM
+<div class="container">
+  <h1>Time to Dance!</h1>
+  <hr />
+
+  </p><a href="{% url 'web:jam' jam.id %}">Here's a link to your new jam</a></p>
+
+  <p>Don't forget to tweet it</p>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thisjamisfire.com/{% url 'web:jam' jam.id %}" data-text="Check out my new jam. It's fire">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
 {% endblock %}

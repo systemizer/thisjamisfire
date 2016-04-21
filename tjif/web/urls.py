@@ -19,6 +19,9 @@ from web import views
 urlpatterns = [
     url('^$', views.index, name='index'),
     url('^add-jam$', views.add_jam, name='add_jam'),
-    url('^profile$', views.profile, name='profile'),        
+    url('^profile/(?P<username>.*)/$', views.profile, name='profile'), 
+    url('^profile/$', views.profile, name='profile'),
+    url('^jam/(?P<jam_id>.*)/$', views.jam, name='jam'),    
+    url('^follow/(?P<username>.*)/$', views.follow, name='follow'),
     url('^discover$', views.discover, name='discover'),    
 ]

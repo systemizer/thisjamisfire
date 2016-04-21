@@ -1,0 +1,23 @@
+{% extends "basepage.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>Profile for {{user.username}}</h1>
+  <hr />
+
+  <div class="row">
+    <div class="col-sm-8">
+      {% for jam in jams %}
+      {% include "snippets/jam.html" %}
+      {% endfor %}
+    </div>
+    <div class="col-sm-4 text-right">
+      {% if following %}
+      <a class="btn btn-xl" href="{% url 'web:follow' user.username %}">Following</a>      
+      {% else %}
+      <a class="btn btn-xl" href="{% url 'web:follow' user.username %}">Follow</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

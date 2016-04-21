@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social.apps.django_app.default',
+    'bootstrapform',
 
     'web'
 ]
@@ -133,7 +134,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'social.apps.django_app.context_processors.login_redirect',
 )
 
-LOGIN_REDIRECT_URL="/dashboard"
+LOGIN_REDIRECT_URL="/discover"
 
 try:
     from .local_settings import *

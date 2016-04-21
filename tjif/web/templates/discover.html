@@ -1,5 +1,42 @@
 {% extends "basepage.html" %}
 
 {% block content %}
-DISCOVER
+<div class="container">
+<div class="row">
+  <div class="col-lg-12">
+    <div>
+
+      <!-- - Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+	<li role="presentation" class="active"><a href="#mostrecent" aria-controls="mostrecent" role="tab" data-toggle="tab">Most Recent</a></li>	
+	<li role="presentation"><a href="#following" aria-controls="following" role="tab" data-toggle="tab">Following</a></li>
+	<li role="presentation"><a href="#myjams" aria-controls="myjams" role="tab" data-toggle="tab">My Jams</a></li>
+      </ul>
+
+      <!-- - Tab panes -->
+      <div class="tab-content">	
+	<div role="tabpanel" class="tab-pane active" id="mostrecent">
+	  {% for jam in recentjams %}
+	  {% include "snippets/jam.html" %}
+	  {% endfor %}
+	</div>
+	<div role="tabpanel" class="tab-pane" id="following">
+	  {% if followingjams %}
+	  {% for jam in followingjams %}
+	  {% include "snippets/jam.html" %}
+	  {% endfor %}
+	  {% else %}
+	  No Jams Available. Make sure you follow people
+	  {% endif %}
+	</div>
+	<div role="tabpanel" class="tab-pane" id="myjams">
+	  {% for jam in myjams %}
+	  {% include "snippets/jam.html" %}
+	  {% endfor %}
+	</div>
+      </div>      
+    </div>
+  </div>
+</div>
+</div>
 {% endblock %}
