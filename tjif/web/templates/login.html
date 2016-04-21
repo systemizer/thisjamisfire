@@ -1,0 +1,9 @@
+{% extends "basepage.html" %}
+
+{% block content %}
+<div class="container">
+  <center>
+    <a class="btn btn-xl" href="{% url 'social:begin' backend='twitter' %}">Login with Twitter to continue</a>
+  </center>
+</div>
+{% endblock %}

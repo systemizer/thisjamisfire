@@ -23,5 +23,6 @@ urlpatterns = [
     url('^profile/$', views.profile, name='profile'),
     url('^jam/(?P<jam_id>.*)/$', views.jam, name='jam'),    
     url('^follow/(?P<username>.*)/$', views.follow, name='follow'),
-    url('^discover$', views.discover, name='discover'),    
+    url('^discover$', views.discover, name='discover'),
+    url('^login$', views.login, name='login'),    
 ]

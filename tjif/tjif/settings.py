@@ -135,6 +135,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 LOGIN_REDIRECT_URL="/discover"
+LOGIN_URL="/login"
 
 # Update database configuration with $DATABASE_URL.
 import dj_database_url
@@ -153,3 +154,8 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 SOCIAL_AUTH_TWITTER_KEY = os.environ.get("SOCIAL_AUTH_TWITTER_KEY")
 SOCIAL_AUTH_TWITTER_SECRET = os.environ.get("SOCIAL_AUTH_TWITTER_SECRET")
+
+try:
+    from .local_settings import *
+except:
+    pass

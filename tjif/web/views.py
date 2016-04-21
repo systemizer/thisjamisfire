@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.http import Http404, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
 
 from web.forms import JamForm
 from web.models import Jam
@@ -10,6 +11,7 @@ from web.models import Jam
 def index(request):
     return render_to_response("index.html", RequestContext(request))
 
+@login_required
 def add_jam(request):
     form = JamForm()
     if request.method == "POST":
@@ -25,6 +27,7 @@ def add_jam(request):
     
     return render_to_response("add-jam.html", {'myjams': myjams, 'form': form }, RequestContext(request))
 
+@login_required
 def follow(request, username):
     try:
         user = User.objects.get(username=username)
@@ -38,8 +41,11 @@ def follow(request, username):
         request.user.profile.following.add(user)        
         
     return HttpResponseRedirect(reverse("web:profile", kwargs={"username": user.username}))
-    
 
+def login(request):
+    return render_to_response("login.html", RequestContext(request))    
+
+@login_required
 def discover(request):
     profile = request.user.profile
     myjams = Jam.objects.filter(user=request.user)[:10]
