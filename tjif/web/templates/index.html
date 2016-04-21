@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}'
+{% load staticfiles %}
 
 {% block body %}
 
@@ -23,6 +23,9 @@
         <li class="hidden">
           <a href="#page-top"></a>
         </li>
+	<li>
+          <a class="page-scroll" href="{% url 'web:discover' %}">Discover</a>
+	</li>
         <li>
           <a class="page-scroll" href="#how-it-works">How it works</a>
         </li>
@@ -45,7 +48,9 @@
     <div class="intro-text">
       <div class="intro-lead-in">What's your jam right now?</div>
       <div class="intro-heading">share it with us</div>
-      <a href="{% url 'social:begin' backend='twitter' %}" class="page-scroll btn btn-xl">Login with Twitter</a>
+      <a href="{% url 'social:begin' backend='twitter' %}" class="page-scroll btn btn-xl btn-primary">Login with Twitter</a>
+      <a href="{% url 'web:discover' %}" class="page-scroll btn btn-xl">Discover Music</a>      
+      
     </div>
   </div>
 </header>

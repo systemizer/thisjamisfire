@@ -1,0 +1,13 @@
+{% extends "basepage.html" %}
+
+
+{% block content %}
+<h1>New jam! yeah!</h1>
+
+<form method="POST" action="{% url 'web:add_jam' %}">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Lets Go" />
+</form>
+
+{% endblock %}

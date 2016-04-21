@@ -133,7 +133,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'social.apps.django_app.context_processors.login_redirect',
 )
 
-LOGIN_REDIRECT_URL="/"
+LOGIN_REDIRECT_URL="/dashboard"
 
 try:
     from .local_settings import *

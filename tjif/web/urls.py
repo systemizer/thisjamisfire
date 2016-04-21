@@ -18,4 +18,7 @@ from web import views
 
 urlpatterns = [
     url('^$', views.index, name='index'),
+    url('^add-jam$', views.add_jam, name='add_jam'),
+    url('^profile$', views.profile, name='profile'),        
+    url('^discover$', views.discover, name='discover'),    
 ]
