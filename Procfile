@@ -1,0 +1,1 @@
+web: sh -c 'cd tjif && gunicorn tjif.wsgi --log-file -'
