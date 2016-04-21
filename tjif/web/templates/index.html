@@ -1,29 +1,195 @@
 {% extends "base.html" %}
-
+{% load staticfiles %}'
 
 {% block body %}
-<h1>Hello World</h1>
 
-<h2>Jams</h2>
-<table class="table">
-  {% for jam in jams %}
-  <tr>
-    <td>{{jam.track_url}}</td>
-    <td>{{jam.user}}</td>    
-    <td>{{jam.created}}</td>
-  </tr>
-  {% endfor %}
-</table>
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand page-scroll" href="#page-top">This Jam is Fire</a>
+    </div>
 
-<h2> Add a Jam</h2>
-<form action="" method="POST">
-  {% csrf_token %}
-  {{form}}
-  <input type="submit" value="Add a Jam" />
-</form>
-    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="hidden">
+          <a href="#page-top"></a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#how-it-works">How it works</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#about">About</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#team">Team</a>
+        </li>	
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
 
+<!-- Header -->
+<header>
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-lead-in">What's your jam right now?</div>
+      <div class="intro-heading">share it with us</div>
+      <a href="{% url 'social:begin' backend='twitter' %}" class="page-scroll btn btn-xl">Login with Twitter</a>
+    </div>
+  </div>
+</header>
 
+<!-- Services Section -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">How it Works</h2>
+        <h3 class="section-subheading text-muted">Post it, Share it, and Discover</h3>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-music fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">Post it</h4>
+        <p class="text-muted">You know that song you've been listening to on repeat for the past couple days? Why not share it with others? Post the song to This Jam Is Fire and we'll notify your followers!</p>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-share fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">Share it</h4>
+        <p class="text-muted">Share your song on Twitter. This Jam Is Fire will help you tell the world about your new jam and we'll setup a page for your new masterpiece so others can listen.</p>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">Discover</h4>
+        <p class="text-muted">Don't have any jams right now? Discover other people's jams on This Jam is Fire. Follow those who post the best jams so you can keep up to date with awesome music.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<a href="{% url 'social:begin' backend='twitter' %}">Login with Twitter</a>
+<!-- About Section -->
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">About</h2>
+        <h3 class="section-subheading text-muted">Inspired by <a href="https://www.thisismyjam.com/">ThisIsMyJam</a></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="timeline">
+          <li>
+            <div class="timeline-image">
+              <img class="img-circle img-responsive" src="{% static 'img/thisismyjam.jpg' %}" alt="">
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>2011-2015</h4>
+                <h4 class="subheading">ThisIsMyJam</h4>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">This site was inspired by ThisIsMyJam, which shut down in 2015. We are not ThisIsMyJam. The authors of this site were avid ThisIsMyJam users and felt like something was lost in their life when ThisIsMyJam shut down</p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <img class="img-circle img-responsive" src="{% static 'img/thisjamisfire.png' %}" alt="">
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>2016</h4>
+                <h4 class="subheading">ThisJamIsFire is born!</h4>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">Yep, we built a website that basically does the same thing as ThisIsMyJam. <3</p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <h4>Be Part
+                <br>Of Our
+                <br>Story!</h4>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="bg-light-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Our Amazing Team</h2>
+        <h3 class="section-subheading text-muted">"Team". BUT I COULD USE HELP :D</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-offset-4 col-sm-4">
+        <div class="team-member">
+          <img src="{% static 'img/me.jpeg' %}" class="img-responsive img-circle" alt="">
+          <h4>Rob McQueen</h4>
+          <p class="text-muted">Music Enthusiast</p>
+          <ul class="list-inline social-buttons">
+            <li><a href="https://twitter.com/systemizer"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li><a href="https://soundcloud.com/systemizer"><i class="fa fa-soundcloud"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <p class="large text-muted">This Jam Is Fire was coded in a day. If you think more investment is worthwhile, you should tell me.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="copyright">Copyright &copy; ThisJamIsFire 2016</span>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline social-buttons">
+          <li><a href="https://twitter.com/systemizer"><i class="fa fa-twitter"></i></a>
+          </li>
+          <li><a href="https://github.com/systemizer/thisjamisfire"><i class="fa fa-github"></i></a>
+          </li>	  
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
 {% endblock %}
+
