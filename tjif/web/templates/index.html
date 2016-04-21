@@ -3,4 +3,27 @@
 
 {% block body %}
 <h1>Hello World</h1>
+
+<h2>Jams</h2>
+<table class="table">
+  {% for jam in jams %}
+  <tr>
+    <td>{{jam.track_url}}</td>
+    <td>{{jam.user}}</td>    
+    <td>{{jam.created}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h2> Add a Jam</h2>
+<form action="" method="POST">
+  {% csrf_token %}
+  {{form}}
+  <input type="submit" value="Add a Jam" />
+</form>
+    
+
+
+
+<a href="{% url 'social:begin' backend='twitter' %}">Login with Twitter</a>
 {% endblock %}

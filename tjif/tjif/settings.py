@@ -133,6 +133,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'social.apps.django_app.context_processors.login_redirect',
 )
 
+LOGIN_REDIRECT_URL="/"
+
 try:
     from .local_settings import *
 except:
